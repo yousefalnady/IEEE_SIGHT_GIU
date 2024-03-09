@@ -6,6 +6,9 @@
 
 
 import serial
+from pushbullet import pushbullet as pbclient
+
+pb = pbclient.Pushbullet("o.OvzdycciHIRvvwJKmEJXEwj5Si3gTEuJ")
 
 def read_gps_data():
     ser = serial.Serial('/dev/ttyS0', 9600, timeout=1)  # Adjust port and baud rate as needed
@@ -30,7 +33,12 @@ def read_gps_data():
         ser.close()
 
 if __name__ == '__main__':
-    print(read_gps_data())
+	x = read_gps_data()
+    print(x)
+    mydev = pb.get_device('Samsung SM-A736B')
+#pushing a notification to my phone
+    push = mydev.push_note(x)
+    print('notification sent to user')
     #latitude, longitude = read_gps_data()
     #print("Latitude:", latitude)
     #print("Longitude:", longitude)
