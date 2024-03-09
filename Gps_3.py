@@ -1,7 +1,7 @@
-pip install gps3
+#pip install gps3
 
-//sudo apt update
-//sudo apt install python-gps
+#//sudo apt update
+#//sudo apt install python-gps
 
 
 

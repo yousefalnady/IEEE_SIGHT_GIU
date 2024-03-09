@@ -1,5 +1,5 @@
-sudo apt update
-sudo apt install python-serial
+#sudo apt update
+#sudo apt install python-serial
 
 
 
@@ -29,6 +29,7 @@ def read_gps_data():
         ser.close()
 
 if __name__ == '__main__':
-    latitude, longitude = read_gps_data()
-    print("Latitude:", latitude)
-    print("Longitude:", longitude)
+    print(read_gps_data())
+    #latitude, longitude = read_gps_data()
+    #print("Latitude:", latitude)
+    #print("Longitude:", longitude)

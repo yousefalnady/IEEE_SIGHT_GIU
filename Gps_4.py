@@ -1,7 +1,7 @@
-sudo apt-get install gpsd gpsd-clients python-gps
-sudo systemctl stop gpsd.socket
-sudo systemctl disable gpsd.socket
-sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+#sudo apt-get install gpsd gpsd-clients python-gps
+#sudo systemctl stop gpsd.socket
+#sudo systemctl disable gpsd.socket
+#sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
 
 
 
@@ -9,7 +9,8 @@ sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
 import gps
 
 def get_gps_data():
-    session = gps.gps("localhost", "2947")
+    # session = gps.gps("localhost", "2947")
+    session = gps.gps("localhost", "3000")
     session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
     try:
