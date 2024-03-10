@@ -1,4 +1,4 @@
-sudo usermod -aG dialout aerobic
+#sudo usermod -aG dialout aerobic
 
 
 
@@ -23,6 +23,7 @@ def read_gps_data():
             print("Exiting GPS reader")
 
 if __name__ == '__main__':
-    latitude, longitude = read_gps_data()
-    print("Latitude:", latitude)
-    print("Longitude:", longitude)
+    print(read_gps_data())
+    #latitude, longitude = read_gps_data()
+    #print("Latitude:", latitude)
+    #print("Longitude:", longitude)

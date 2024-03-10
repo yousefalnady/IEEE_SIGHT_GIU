@@ -1,11 +1,7 @@
-#pip install pushbullet.py
-
+#!/usr/bin/python
 import webbrowser
 import requests
 from gps3 import gps3
-from pushbullet import Pushbullet
-
-PUSHBULLET_API_KEY = 'o.g7cwKA3RDtZPViaFW3kfo1LAm7E3JhiU'
 
 def reverse_geocode(latitude, longitude):
     url = f"https://nominatim.openstreetmap.org/reverse?lat={latitude}&lon={longitude}&format=json"
@@ -41,22 +37,8 @@ def read_gps_data():
     finally:
         gps_socket.close()
 
-def send_notification(title, body):
-    pb = Pushbullet('o.g7cwKA3RDtZPViaFW3kfo1LAm7E3JhiU')
-    pb.push_note(title, body)
-
 if __name__ == '__main__':
     latitude, longitude, address = read_gps_data()
     print("Latitude:", latitude)
     print("Longitude:", longitude)
     print("Address:", address)
-    
-    if address:
-        send_notification("Location Update", address)
-
-
-
-
-#Latitude: 30.0443879
-#Longitude: 31.2357257
-#Address: سوق الجملة، منطقة عين شمس الشرقية، قسم عين شمس، محافظة القاهرة‬، مصر
