@@ -10,7 +10,7 @@ import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def capture_image():
@@ -33,7 +33,7 @@ def capture_image():
 
 print('Waiting for button press...')
 while True:
-    if GPIO.input(4) == GPIO.HIGH:
+    if GPIO.input(22) == GPIO.HIGH:
         print("Button was pushed!")
         break
 print('Button pressed.')
@@ -55,13 +55,13 @@ for r in results:
         print(class_name)
 
         # Translate the class name to Arabic
-        translation = translator.translate(class_name, dest='ar')
-        translated_text = translation.text
-        print(translated_text)
+        #translation = translator.translate(class_name, dest='ar')
+        #translated_text = translation.text
+        #print(translated_text)
 
         # Convert translated text to audio and play
         mp3_fp = BytesIO()
-        tts = gTTS(translated_text, lang='ar')
+        tts = gTTS(class_name, lang='ar')
         tts.save('translated_audio.mp3')
         tts.write_to_fp(mp3_fp)
         mp3_fp.seek(0)

@@ -33,10 +33,10 @@ def read_gps_data():
         ser.close()
 
 if __name__ == '__main__':
-    #x = read_gps_data()
-    #print(x)
+    x = read_gps_data()
+    print(x)
     mydev = pb.get_device('Samsung SM-A736B')
-#pushing a notification to my phone
+	#pushing a notification to my phone
     push = mydev.push_note("message",str(read_gps_data()))
     print('notification sent to user')
     #latitude, longitude = read_gps_data()

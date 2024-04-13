@@ -73,18 +73,21 @@ try:
         print(min_sensor)
         if min_distance < 10 and min_sensor=="Ultrasonic 1":
             GPIO.output(Vibration_Motor1, True)
+            print("VM1")
             print("Minimum Distance2:",min_distance)
             time.sleep(4)
             GPIO.output(Vibration_Motor1, False)
         elif min_distance < 10 and min_sensor=="Ultrasonic 2":
             GPIO.output(Vibration_Motor2, True)
             print("Minimum Distance2:",min_distance)
+            print("VM2")
             time.sleep(4)
        
             GPIO.output(Vibration_Motor2, False)
         elif min_distance < 10 and min_sensor=="Ultrasonic 3":
             GPIO.output(Vibration_Motor3, True)
             print("Minimum Distance2:",min_distance)
+            print("VM3")
             time.sleep(4)	
         
             GPIO.output(Vibration_Motor3, False)            
