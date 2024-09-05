@@ -14,8 +14,8 @@ GPIO_TRIG2 = 36
 GPIO_ECHO3 = 35
 GPIO_TRIG3 = 37
 Vibration_Motor1 = 33
-Vibration_Motor2 = 13
-Vibration_Motor3 = 15
+#Vibration_Motor2 = 13
+#Vibration_Motor3 = 15
 
 # Set up GPIO pins
 GPIO.setup(GPIO_TRIG1, GPIO.OUT)
@@ -25,16 +25,16 @@ GPIO.setup(GPIO_ECHO2, GPIO.IN)
 GPIO.setup(GPIO_TRIG3, GPIO.OUT)
 GPIO.setup(GPIO_ECHO3, GPIO.IN)
 GPIO.setup(Vibration_Motor1, GPIO.OUT)
-GPIO.setup(Vibration_Motor2, GPIO.OUT)
-GPIO.setup(Vibration_Motor3, GPIO.OUT)
+#GPIO.setup(Vibration_Motor2, GPIO.OUT)
+#GPIO.setup(Vibration_Motor3, GPIO.OUT)
 
 # Initialize all outputs to False
 GPIO.output(GPIO_TRIG1, False)
 GPIO.output(GPIO_TRIG2, False)
 GPIO.output(GPIO_TRIG3, False)
 GPIO.output(Vibration_Motor1, False)
-GPIO.output(Vibration_Motor2, False)
-GPIO.output(Vibration_Motor3, False)
+#GPIO.output(Vibration_Motor2, False)
+#GPIO.output(Vibration_Motor3, False)
 
 time.sleep(2)
 
@@ -77,22 +77,15 @@ try:
         print("Minimum Distance:", min_distance)
         print(min_sensor)
         
-        if min_distance < 10:
-            if min_sensor == "Ultrasonic 1":
-                GPIO.output(Vibration_Motor1, True)
-                print("VM1 activated")
-            elif min_sensor == "Ultrasonic 2":
-                GPIO.output(Vibration_Motor2, True)
-                print("VM2 activated")
-            elif min_sensor == "Ultrasonic 3":
-                GPIO.output(Vibration_Motor3, True)
-                print("VM3 activated")
+        if min_distance < 15:
+            GPIO.output(Vibration_Motor1, True)
+            print("VM1 activated")
 
             print("Minimum Distance:", min_distance)
-            time.sleep(4)
+            time.sleep(2)
             GPIO.output(Vibration_Motor1, False)
-            GPIO.output(Vibration_Motor2, False)
-            GPIO.output(Vibration_Motor3, False)
+#            GPIO.output(Vibration_Motor2, False)
+#            GPIO.output(Vibration_Motor3, False)
         
         time.sleep(0.1)
         

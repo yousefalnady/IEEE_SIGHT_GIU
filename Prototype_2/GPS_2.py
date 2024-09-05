@@ -2,12 +2,13 @@ import serial
 import time
 
 # Initialize the serial connection
-ser = serial.Serial('/dev/ttyTHS2', baudrate=9600, timeout=1)
+ser = serial.Serial('/dev/ttyUSB0', baudrate=115200, timeout=1)
 
 def get_location():
     # Send AT command to check if the GPS is ready
     ser.write(b'AT+CGPSSTATUS?\r\n')
     response = ser.readline().decode().strip()
+    print(response)
     if 'LOCATION' in response:
         # Send AT command to get the GPS data
         ser.write(b'AT+CGPSINF=0\r\n')
